@@ -1,0 +1,84 @@
+<div class="row mt-4" *ngIf="pilot">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <strong>
+                        <h5>{{pilot.name}}</h5>
+                    </strong>
+                </div>
+                <div>
+                    <strong>height: </strong> {{pilot.height}}
+                </div>
+                <div>
+                    <strong>hair color: </strong> {{pilot.hair_color}}
+                </div>
+                <div>
+                    <strong>skin color:</strong> {{pilot.skin_color}}
+                </div>
+                <div>
+                    <strong>eye color:</strong> {{pilot.eye_color}}
+                </div>
+                <div>
+                    <strong>birth year:</strong> {{pilot.birth_year}}
+                </div>
+                <div>
+                    <strong>gender :</strong> {{pilot.gender}}
+                </div>
+                <div>
+                    <strong>homeworld :</strong> {{pilot.homeworld}}
+                </div>
+                <div>
+                    <strong>Created:</strong>
+                    <p>{{pilot.created}}</p>
+                </div>
+                <div>
+                    <strong>Edited:</strong>
+                    <p>{{pilot.edited}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="starship-tabset">
+            <ng-container *ngIf="pilot">
+                <tab heading="Species">
+                    <ul class="list-group" *ngFor="let specie of pilot.species">
+                        <li href="#" class="list-group-item list-group-item-action">{{specie}}</li>
+                    </ul>
+                </tab>
+            </ng-container>
+            <ng-container *ngIf="pilot.films.length">
+                <tab heading="Films">
+                    <ul class="list-group" *ngFor="let film of pilot.films">
+                        <li href="#" class="list-group-item list-group-item-action">{{film}}</li>
+                    </ul>
+                </tab>
+            </ng-container>
+            <ng-container *ngIf="pilot.vehicles.length">
+                <tab heading="Vehicles">
+                    <ul class="list-group" *ngFor="let vehicles of pilot.vehicles">
+                        <li href="#" class="list-group-item list-group-item-action">{{vehicles}}</li>
+                    </ul>
+                </tab>
+            </ng-container>
+            <ng-container *ngIf="pilot.starships.length">
+                <tab heading="Starships">
+                    <ul class="list-group" *ngFor="let starship of pilot.starships">
+                        <li href="#" class="list-group-item list-group-item-action">{{starship}}</li>
+                    </ul>
+                </tab>
+            </ng-container>
+        </tabset>
+        <div>
+            <li href="#" class="list-group-item list-group-item-action">For more info available on the links bellow</li>
+        </div>
+    </div>
+    
+
+</div>
+
+
+<!-- pilots: People[];
+    films: string[]; -->

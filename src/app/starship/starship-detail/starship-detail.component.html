@@ -1,0 +1,85 @@
+<div class="row mt-4" *ngIf="starship">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <strong>
+                        <h5>{{starship.name}}</h5>
+                    </strong>
+                </div>
+                <div>
+                    <strong>Model: </strong> {{starship.model}}
+                </div>
+                <div>
+                    <strong>Manufacturer: </strong> {{starship.manufacturer}}
+                </div>
+                <div>
+                    <strong>Cost:</strong> {{starship.cost_in_credits}}
+                </div>
+                <div>
+                    <strong>Length:</strong> {{starship.length}}
+                </div>
+                <div>
+                    <strong>Speed:</strong> {{starship.max_atmosphering_speed}}
+                </div>
+                <div>
+                    <strong>Crew:</strong> {{starship.crew}}
+                </div>
+                <div>
+                    <strong>Passengers:</strong> {{starship.passengers}}
+                </div>
+                <div>
+                    <strong>Capacity:</strong> {{starship.cargo_capacity}}
+                </div>
+                <div>
+                    <strong>Consumables:</strong> {{starship.consumables}}
+                </div>
+                <div>
+                    <strong>Rating:</strong> {{starship.hyperdrive_rating}}
+                </div>
+                <div>
+                    <strong>MGLT:</strong> {{starship.MGLT}}
+                </div>
+                <div>
+                    <strong>Class:</strong> {{starship.starship_class}}
+                    <p></p>
+                </div>
+                <div>
+                    <strong>Created:</strong>
+                    <p>{{starship.created}}</p>
+                </div>
+                <div>
+                    <strong>Edited:</strong>
+                    <p>{{starship.edited}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="starship-tabset">
+
+            <ng-container *ngIf="pilots.length">
+                <tab heading="Pilots">
+                    <div class="list-group" *ngFor="let pilot of pilots">
+                        <a href="#" class="list-group-item list-group-item-action" routerLink="/people/{{getPilotId(pilot.url)}}">{{pilot.name}}</a>
+                    </div>
+                </tab>
+            </ng-container>
+            <ng-container *ngIf="films.length">
+                <tab heading="Films">
+                    <ul class="list-group" *ngFor="let film of films">
+                        <li class="list-group-item list-group-item">{{film.title}}</li>
+                    </ul>
+                </tab>
+            </ng-container>
+
+
+        </tabset>
+    </div>
+
+</div>
+
+
+<!-- pilots: People[];
+    films: string[]; -->
